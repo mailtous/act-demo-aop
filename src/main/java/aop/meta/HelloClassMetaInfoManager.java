@@ -23,7 +23,10 @@ package aop.meta;
 import static act.Destroyable.Util.destroyAll;
 
 import act.asm.Type;
+import act.plugin.finder.ScannerFinder;
 import act.util.DestroyableBase;
+import org.osgl.logging.LogManager;
+import org.osgl.logging.Logger;
 import org.osgl.util.C;
 
 import java.util.Map;
@@ -31,7 +34,7 @@ import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 public class HelloClassMetaInfoManager extends DestroyableBase {
-
+    protected static Logger logger = LogManager.get(HelloClassMetaInfoManager.class);
     private Map<String, HelloClassMetaInfo> metaInfoMap = C.newMap();
 
     public HelloClassMetaInfoManager() {
@@ -47,7 +50,7 @@ public class HelloClassMetaInfoManager extends DestroyableBase {
     public void register(HelloClassMetaInfo metaInfo) {
         String className = Type.getObjectType(metaInfo.className()).getClassName();
         metaInfoMap.put(className, metaInfo);
-        logger.info("Hello meta class info registered for: %s", className);
+        logger.debug("Hello meta class info registered for: %s", className);
     }
 
     public HelloClassMetaInfo getMetaInfo(String className) {

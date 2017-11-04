@@ -5,6 +5,10 @@
   <groupId>act-demo</groupId>
   <artifactId>act-demo-aop</artifactId>
   <version>1.0</version>
+  <packaging>pom</packaging>
+  <name>act-demo-aop</name>
+  <url>http://maven.apache.org</url>
+
   <build>
     <plugins>
       <plugin>
@@ -17,26 +21,18 @@
       </plugin>
     </plugins>
   </build>
-  <packaging>jar</packaging>
 
-  <name>act-aop</name>
-  <url>http://maven.apache.org</url>
 
   <properties>
+    <app.entry>aop.AppTest</app.entry>
+    <app.base>${project.basedir}</app.base>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <act.version>1.4.13-SNAPSHOT</act.version>
+    <act.version>1.4.13</act.version>
     <commons.beanutils.version>1.8.3</commons.beanutils.version>
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.10</version>
-      <scope>test</scope>
-    </dependency>
-
     <dependency>
       <groupId>org.actframework</groupId>
       <artifactId>act</artifactId>
@@ -49,10 +45,11 @@
       <version>1.1.6</version>
     </dependency>
     <dependency>
-      <groupId>commons-beanutils</groupId>
-      <artifactId>commons-beanutils</artifactId>
-      <version>${commons.beanutils.version}</version>
+      <groupId>act-plugin</groupId>
+      <artifactId>act-plugin-scanner-finder</artifactId>
+      <version>1.0.0</version>
     </dependency>
 
   </dependencies>
+
 </project>
